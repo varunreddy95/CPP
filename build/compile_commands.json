@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/varun/Desktop/CPP/build",
+  "command": "C:\\mingw64\\bin\\clang++.exe -g -std=gnu++14 -o CMakeFiles\\CPP.dir\\FirstProgram\\src\\main.cpp.obj -c C:\\Users\\varun\\Desktop\\CPP\\FirstProgram\\src\\main.cpp",
+  "file": "C:\\Users\\varun\\Desktop\\CPP\\FirstProgram\\src\\main.cpp",
+  "output": "CMakeFiles\\CPP.dir\\FirstProgram\\src\\main.cpp.obj"
+},
+{
+  "directory": "C:/Users/varun/Desktop/CPP/build",
+  "command": "C:\\mingw64\\bin\\clang++.exe -g -std=gnu++14 -o CMakeFiles\\CPP.dir\\Project1\\main.cpp.obj -c C:\\Users\\varun\\Desktop\\CPP\\Project1\\main.cpp",
+  "file": "C:\\Users\\varun\\Desktop\\CPP\\Project1\\main.cpp",
+  "output": "CMakeFiles\\CPP.dir\\Project1\\main.cpp.obj"
+}
+]
