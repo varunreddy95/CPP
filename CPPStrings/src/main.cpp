@@ -62,8 +62,8 @@ int main()
     //     std::cout << "The word wasn't found" << std::endl;
     // }
 
-    std::string alphabets {"abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-    std::string key {"ZYXWVUTSRQPONMLKJIHGFEDCBAZ zyxwvutsrqponmlkjihgfedcba"};
+    std::string alphabets {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "};
+    std::string key {"ZYXWVUTSRQPONMLKJIHGFEDCBAZzyxwvutsrqponmlkjihgfedcba "};
 
     std::string secret_message {};
     std::cout << "Enter you secret message to be transmitted : ";
@@ -72,14 +72,25 @@ int main()
     std::string encrypted_message {secret_message};
     
 
+// Encryption
     for(size_t i=0; i < secret_message.length(); i++)
     {
         int pos = alphabets.find(secret_message[i]);
-        std::cout << alphabets.at(pos) + " " + key.at(pos) << std::endl;
-        encrypted_message.at(0) = key[pos];
+        encrypted_message.at(i) = key[pos];
     }
 
     std::cout << "Encrypted message: " << encrypted_message << std::endl;
+
+    std::string decrypted_message {encrypted_message};    
+
+// Decryption
+    for(size_t i=0; i < encrypted_message.length(); i++)
+    {
+        int e_pos = key.find(encrypted_message[i]);
+        decrypted_message.at(i) = alphabets[e_pos];
+    }
+
+    std::cout << "Decrypted Message: " << decrypted_message << std::endl;
 
     return 0;
 }
