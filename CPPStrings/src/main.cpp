@@ -62,35 +62,71 @@ int main()
     //     std::cout << "The word wasn't found" << std::endl;
     // }
 
-    std::string alphabets {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "};
-    std::string key {"ZYXWVUTSRQPONMLKJIHGFEDCBAZzyxwvutsrqponmlkjihgfedcba "};
+//     std::string alphabets {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "};
+//     std::string key {"ZYXWVUTSRQPONMLKJIHGFEDCBAZzyxwvutsrqponmlkjihgfedcba "};
 
-    std::string secret_message {};
-    std::cout << "Enter you secret message to be transmitted : ";
-    std::getline(std::cin, secret_message);
+//     std::string secret_message {};
+//     std::cout << "Enter you secret message to be transmitted : ";
+//     std::getline(std::cin, secret_message);
 
-    std::string encrypted_message {secret_message};
+//     std::string encrypted_message {secret_message};
     
 
-// Encryption
-    for(size_t i=0; i < secret_message.length(); i++)
+// // Encryption
+//     for(size_t i=0; i < secret_message.length(); i++)
+//     {
+//         int pos = alphabets.find(secret_message[i]);
+//         encrypted_message.at(i) = key[pos];
+//     }
+
+//     std::cout << "Encrypted message: " << encrypted_message << std::endl;
+
+//     std::string decrypted_message {encrypted_message};    
+
+// // Decryption
+//     for(size_t i=0; i < encrypted_message.length(); i++)
+//     {
+//         int e_pos = key.find(encrypted_message[i]);
+//         decrypted_message.at(i) = alphabets[e_pos];
+//     }
+
+//     std::cout << "Decrypted Message: " << decrypted_message << std::endl;
+
+    std::string user_input {};
+    std::cout << "Enter a string: ";
+    std::cin >> user_input;
+
+    size_t num_letters = user_input.length();
+
+    int position {0};
+
+    // for each letter in the string entered
+    for (char c: user_input)
     {
-        int pos = alphabets.find(secret_message[i]);
-        encrypted_message.at(i) = key[pos];
+        size_t num_spaces = num_letters - position;
+        while (num_spaces > 0) {
+            std::cout << " ";
+            --num_spaces;
+        }
+
+        // display in order upto the current character
+        for (int j=0; j < position; j++) {
+            std::cout << user_input.at(j);
+        }
+
+        //Diplay the current "center" character
+        std::cout << c;
+
+        //Display the remaining characters in reverse order
+        for (int j=position-1; j >= 0; --j) {
+            // To get rid of size_t vs int warnings 
+            auto k = static_cast<size_t>(j);
+            std::cout << user_input.at(k);
+        }
+
+        std::cout << std::endl;
+        ++position;
     }
-
-    std::cout << "Encrypted message: " << encrypted_message << std::endl;
-
-    std::string decrypted_message {encrypted_message};    
-
-// Decryption
-    for(size_t i=0; i < encrypted_message.length(); i++)
-    {
-        int e_pos = key.find(encrypted_message[i]);
-        decrypted_message.at(i) = alphabets[e_pos];
-    }
-
-    std::cout << "Decrypted Message: " << decrypted_message << std::endl;
 
     return 0;
 }
